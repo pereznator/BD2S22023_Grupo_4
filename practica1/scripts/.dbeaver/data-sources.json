@@ -1,0 +1,42 @@
+{
+	"folders": {},
+	"connections": {
+		"microsoft-19147bd9bad-65d33a840c7d9fd6": {
+			"provider": "sqlserver",
+			"driver": "microsoft",
+			"name": "master",
+			"save-password": true,
+			"configuration": {
+				"host": "database-1.ctgk4yy8uh7e.us-east-2.rds.amazonaws.com",
+				"port": "1433",
+				"database": "master",
+				"url": "jdbc:sqlserver://;serverName\u003ddatabase-1.ctgk4yy8uh7e.us-east-2.rds.amazonaws.com;databaseName\u003dmaster",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"closeIdleConnection": true,
+				"provider-properties": {
+					"@dbeaver-show-all-schemas@": "false",
+					"sslTrustServerCertificate": "false"
+				},
+				"auth-model": "sqlserver_database"
+			}
+		}
+	},
+	"virtual-models": {"microsoft-19147bd9bad-65d33a840c7d9fd6":{"BD2":{"practica1":{"@properties":{"erd.diagram.state":{"serialized":"\u003cdiagram version\u003d\"1\" name\u003d\"empty\" time\u003d\"202408130959\"\u003e\u003centities\u003e\u003cdata-source id\u003d\"microsoft-19147bd9bad-65d33a840c7d9fd6\"\u003e\u003centity id\u003d\"1\" name\u003d\"Course\" fq-name\u003d\"BD2.practica1.Course\" order\u003d\"0\" x\u003d\"251\" y\u003d\"122\"\u003e\u003cpath name\u003d\"practica1\"/\u003e\u003cpath name\u003d\"BD2\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"2\" name\u003d\"CourseAssignment\" fq-name\u003d\"BD2.practica1.CourseAssignment\" order\u003d\"1\" x\u003d\"40\" y\u003d\"40\"\u003e\u003cpath name\u003d\"practica1\"/\u003e\u003cpath name\u003d\"BD2\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"3\" name\u003d\"CourseTutor\" fq-name\u003d\"BD2.practica1.CourseTutor\" order\u003d\"2\" x\u003d\"691\" y\u003d\"534\"\u003e\u003cpath name\u003d\"practica1\"/\u003e\u003cpath name\u003d\"BD2\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"4\" name\u003d\"HistoryLog\" fq-name\u003d\"BD2.practica1.HistoryLog\" order\u003d\"3\" x\u003d\"40\" y\u003d\"1248\"\u003e\u003cpath name\u003d\"practica1\"/\u003e\u003cpath name\u003d\"BD2\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"5\" name\u003d\"Notification\" fq-name\u003d\"BD2.practica1.Notification\" order\u003d\"4\" border-width\u003d\"3\" x\u003d\"40\" y\u003d\"552\"\u003e\u003cpath name\u003d\"practica1\"/\u003e\u003cpath name\u003d\"BD2\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"6\" name\u003d\"ProfileStudent\" fq-name\u003d\"BD2.practica1.ProfileStudent\" order\u003d\"5\" x\u003d\"40\" y\u003d\"736\"\u003e\u003cpath name\u003d\"practica1\"/\u003e\u003cpath name\u003d\"BD2\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"7\" name\u003d\"Roles\" fq-name\u003d\"BD2.practica1.Roles\" order\u003d\"6\" x\u003d\"251\" y\u003d\"368\"\u003e\u003cpath name\u003d\"practica1\"/\u003e\u003cpath name\u003d\"BD2\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"8\" name\u003d\"TFA\" fq-name\u003d\"BD2.practica1.TFA\" order\u003d\"7\" x\u003d\"40\" y\u003d\"900\"\u003e\u003cpath name\u003d\"practica1\"/\u003e\u003cpath name\u003d\"BD2\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"9\" name\u003d\"TutorProfile\" fq-name\u003d\"BD2.practica1.TutorProfile\" order\u003d\"8\" x\u003d\"40\" y\u003d\"1084\"\u003e\u003cpath name\u003d\"practica1\"/\u003e\u003cpath name\u003d\"BD2\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"10\" name\u003d\"UsuarioRole\" fq-name\u003d\"BD2.practica1.UsuarioRole\" order\u003d\"9\" x\u003d\"40\" y\u003d\"368\"\u003e\u003cpath name\u003d\"practica1\"/\u003e\u003cpath name\u003d\"BD2\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"11\" name\u003d\"Usuarios\" fq-name\u003d\"BD2.practica1.Usuarios\" order\u003d\"10\" x\u003d\"251\" y\u003d\"512\"\u003e\u003cpath name\u003d\"practica1\"/\u003e\u003cpath name\u003d\"BD2\"/\u003e\u003c/entity\u003e\u003c/data-source\u003e\u003c/entities\u003e\u003crelations\u003e\u003crelation name\u003d\"FK_CourseAssignment_Course_CourseCodCourse\" fq-name\u003d\"practica1.CourseAssignment.FK_CourseAssignment_Course_CourseCodCourse\" type\u003d\"fk\" pk-ref\u003d\"1\" fk-ref\u003d\"2\"/\u003e\u003crelation name\u003d\"FK_CourseTutor_Course_CourseCodCourse\" fq-name\u003d\"practica1.CourseTutor.FK_CourseTutor_Course_CourseCodCourse\" type\u003d\"fk\" pk-ref\u003d\"1\" fk-ref\u003d\"3\"/\u003e\u003crelation name\u003d\"FK_UsuarioRole_Roles_RoleId\" fq-name\u003d\"practica1.UsuarioRole.FK_UsuarioRole_Roles_RoleId\" type\u003d\"fk\" pk-ref\u003d\"7\" fk-ref\u003d\"10\"/\u003e\u003crelation name\u003d\"FK_CourseAssignment_Usuarios_StudentId\" fq-name\u003d\"practica1.CourseAssignment.FK_CourseAssignment_Usuarios_StudentId\" type\u003d\"fk\" pk-ref\u003d\"11\" fk-ref\u003d\"2\"/\u003e\u003crelation name\u003d\"FK_CourseTutor_Usuarios_TutorId\" fq-name\u003d\"practica1.CourseTutor.FK_CourseTutor_Usuarios_TutorId\" type\u003d\"fk\" pk-ref\u003d\"11\" fk-ref\u003d\"3\"/\u003e\u003crelation name\u003d\"FK_Notification_Usuarios_UserId\" fq-name\u003d\"practica1.Notification.FK_Notification_Usuarios_UserId\" type\u003d\"fk\" pk-ref\u003d\"11\" fk-ref\u003d\"5\"/\u003e\u003crelation name\u003d\"FK_ProfileStudent_Usuarios_UserId\" fq-name\u003d\"practica1.ProfileStudent.FK_ProfileStudent_Usuarios_UserId\" type\u003d\"fk\" pk-ref\u003d\"11\" fk-ref\u003d\"6\"/\u003e\u003crelation name\u003d\"FK_TFA_Usuarios_UserId\" fq-name\u003d\"practica1.TFA.FK_TFA_Usuarios_UserId\" type\u003d\"fk\" pk-ref\u003d\"11\" fk-ref\u003d\"8\"/\u003e\u003crelation name\u003d\"FK_TutorProfile_Usuarios_UserId\" fq-name\u003d\"practica1.TutorProfile.FK_TutorProfile_Usuarios_UserId\" type\u003d\"fk\" pk-ref\u003d\"11\" fk-ref\u003d\"9\"/\u003e\u003crelation name\u003d\"FK_UsuarioRole_Usuarios_UserId\" fq-name\u003d\"practica1.UsuarioRole.FK_UsuarioRole_Usuarios_UserId\" type\u003d\"fk\" pk-ref\u003d\"11\" fk-ref\u003d\"10\"/\u003e\u003c/relations\u003e\u003c/diagram\u003e"}}}}}},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"smart-commit": false,
+			"smart-commit-recover": true,
+			"auto-close-transactions": true,
+			"close-transactions-period": 1800,
+			"auto-close-connections": true,
+			"close-connections-period": 14400
+		}
+	}
+}
