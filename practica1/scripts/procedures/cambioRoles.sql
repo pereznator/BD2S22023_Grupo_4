@@ -49,17 +49,30 @@ BEGIN
 	       	ROLLBACK TRANSACTION;
 	        RETURN; -- Terminar la ejecución del procedimiento
 		END
+
+		IF EXISTS (SELECT 1 FROM [practica1].[CourseTutor] WHERE TutorId = @UsuarioId AND CourseCodCourse = @CodCourse)
+		BEGIN 
+			-- Si el tutor ya esta asignado al curso, devolver un mensaje de error
+	        RAISERROR('El tutor ya esta asignado al curso.', 16, 1);
+	       	ROLLBACK TRANSACTION;
+	        RETURN; -- Terminar la ejecución del procedimiento
+		END
 		
+
+		IF NOT EXISTS (SELECT 1 FROM [practica1].[TutorProfile] WHERE UserId = @UsuarioId)
+		BEGIN 
+			INSERT INTO [practica1].[TutorProfile] (UserId, TutorCode) VALUES (@UsuarioId, NEWID());		
+		END
+
 		DECLARE @Message NVARCHAR(max);
 		SET @Message = 'Has sido asignado al curso de ' + @NombreCurso;
-	
+		
 		INSERT INTO [practica1].[UsuarioRole] (RoleId, UserId, IsLatestVersion) VALUES (@RoleId, @UsuarioId, 1);
-		INSERT INTO [practica1].[TutorProfile] (UserId, TutorCode) VALUES (@UsuarioId, NEWID());
 		INSERT INTO [practica1].[CourseTutor] (TutorId, CourseCodCourse) VALUES (@UsuarioId, @CodCourse);
 		INSERT INTO [practica1].[Notification] (UserId, Message, [Date]) VALUES (@UsuarioId, @Message, SYSDATETIME());
 		
 		COMMIT TRANSACTION;
-		PRINT('Curso asi.');
+		PRINT('Tutor asignado exitosamente.');
 	END TRY
 	BEGIN CATCH
 		IF @@TRANCOUNT > 0
@@ -84,7 +97,7 @@ END
 -- Usar procedimiento
 EXEC PR2
 	@Email = 'email@gmail.com',
-	@CodCourse = 970
+	@CodCourse = 5045
 ;
 
 -- Eliminar Procedimiento

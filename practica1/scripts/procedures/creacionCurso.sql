@@ -55,9 +55,9 @@ BEGIN
 END
 
 EXEC PR5
-	@CodCourse = 45,
-	@Name = 'Teoria de Paradigmas',
-	@CreditsRequired = 130
+	@CodCourse = 420,
+	@Name = 'Organizacion Computacional',
+	@CreditsRequired = 70
 ;
 
 
