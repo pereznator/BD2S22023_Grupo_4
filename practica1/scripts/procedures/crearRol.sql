@@ -1,9 +1,11 @@
+USE BD2;
 
 CREATE PROCEDURE PR4
 	@RoleName NVARCHAR(MAX)
 AS
 BEGIN
 	BEGIN TRY
+		INSERT INTO [practica1].[HistoryLog] (Description, [Date]) VALUES ('[TRANSACTION] Creada (PR4).', SYSDATETIME());
 		BEGIN TRANSACTION;
 		IF EXISTS (SELECT 1 FROM [practica1].[Roles] r WHERE r.RoleName = @RoleName)
 		BEGIN 
@@ -15,6 +17,7 @@ BEGIN
 		
 		INSERT INTO [practica1].[Roles] (Id, RoleName) VALUES (NEWID(), @RoleName);
 		COMMIT TRANSACTION;
+		INSERT INTO [practica1].[HistoryLog] (Description, [Date]) VALUES ('[TRANSACTION] Commit (PR4).', SYSDATETIME());
 		PRINT('Role creado exitosamente.');
 		
 	END TRY
@@ -22,6 +25,7 @@ BEGIN
 		IF @@TRANCOUNT > 0
 		BEGIN
 			ROLLBACK TRANSACTION;
+			INSERT INTO [practica1].[HistoryLog] (Description, [Date]) VALUES ('[TRANSACTION] Rollback (PR4).', SYSDATETIME());
 		END
 		
 		-- Devolver el error capturado

@@ -8,6 +8,7 @@ CREATE PROCEDURE PR5
 AS
 BEGIN
 	BEGIN TRY
+		INSERT INTO [practica1].[HistoryLog] (Description, [Date]) VALUES ('[TRANSACTION] Creada (PR5).', SYSDATETIME());
 		BEGIN TRANSACTION;
 	
 		IF PATINDEX('%[^a-zA-Z ]%', @Name) > 0
@@ -30,7 +31,7 @@ BEGIN
 		INSERT INTO [practica1].[Course] (CodCourse, Name, CreditsRequired) VALUES (@CodCourse, @Name, @CreditsRequired);
 		
 		COMMIT TRANSACTION;
-		
+		INSERT INTO [practica1].[HistoryLog] (Description, [Date]) VALUES ('[TRANSACTION] Commit (PR5).', SYSDATETIME());
 		PRINT('Curso creado exitosamente.');
 	
 	END TRY
@@ -38,6 +39,7 @@ BEGIN
 		IF @@TRANCOUNT > 0
 		BEGIN
 			ROLLBACK TRANSACTION;
+			INSERT INTO [practica1].[HistoryLog] (Description, [Date]) VALUES ('[TRANSACTION] Rollback (PR5).', SYSDATETIME());
 		END
 		
 		-- Devolver el error capturado

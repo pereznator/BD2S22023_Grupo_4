@@ -5,6 +5,7 @@ CREATE PROCEDURE PR6
 AS
 BEGIN
 	BEGIN TRY
+		INSERT INTO [practica1].[HistoryLog] (Description, [Date]) VALUES ('[TRANSACTION] Creada (PR6).', SYSDATETIME());
 		BEGIN TRANSACTION;
 		
 		 -- Variable para manejar la longitud de las cadenas
@@ -99,14 +100,16 @@ BEGIN
 	   	
 		
 		COMMIT TRANSACTION;
+		INSERT INTO [practica1].[HistoryLog] (Description, [Date]) VALUES ('[TRANSACTION] Commit (PR6).', SYSDATETIME());
 	    -- Mensaje de éxito opcional
-	    PRINT 'Los nombres y apellidos han sido validados y limpiados exitosamente.';
+	    PRINT('Los nombres y apellidos han sido validados y limpiados exitosamente.');
 	
 	END TRY
 	BEGIN CATCH
 		IF @@TRANCOUNT > 0
 		BEGIN
 			ROLLBACK TRANSACTION;
+			INSERT INTO [practica1].[HistoryLog] (Description, [Date]) VALUES ('[TRANSACTION] Rollback (PR6).', SYSDATETIME());
 		END
 		
 		-- Devolver el error capturado
@@ -122,7 +125,6 @@ BEGIN
         RAISERROR (@ErrorMessage, @ErrorSeverity, @ErrorState);
 	END CATCH
 END
-
 
 -- Ejecutar Procedimiento
 EXEC PR6;

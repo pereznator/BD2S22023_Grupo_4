@@ -7,6 +7,7 @@ CREATE PROCEDURE PR2
 AS
 BEGIN
 	BEGIN TRY
+		INSERT INTO [practica1].[HistoryLog] (Description, [Date]) VALUES ('[TRANSACTION] Creada (PR2).', SYSDATETIME());
 		BEGIN TRANSACTION;
 	
 		DECLARE @UsuarioId UNIQUEIDENTIFIER;
@@ -72,12 +73,14 @@ BEGIN
 		INSERT INTO [practica1].[Notification] (UserId, Message, [Date]) VALUES (@UsuarioId, @Message, SYSDATETIME());
 		
 		COMMIT TRANSACTION;
+		INSERT INTO [practica1].[HistoryLog] (Description, [Date]) VALUES ('[TRANSACTION] Commit (PR2).', SYSDATETIME());
 		PRINT('Tutor asignado exitosamente.');
 	END TRY
 	BEGIN CATCH
 		IF @@TRANCOUNT > 0
 		BEGIN
 			ROLLBACK TRANSACTION;
+			INSERT INTO [practica1].[HistoryLog] (Description, [Date]) VALUES ('[TRANSACTION] Rollback (PR2).', SYSDATETIME());
 		END
 		
 		-- Devolver el error capturado
@@ -96,7 +99,7 @@ END
 
 -- Usar procedimiento
 EXEC PR2
-	@Email = 'email@gmail.com',
+	@Email = 'casaca@gmail.com',
 	@CodCourse = 5045
 ;
 
