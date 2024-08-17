@@ -6,6 +6,7 @@ CREATE PROCEDURE PR3
 AS
 BEGIN
 	BEGIN TRY
+		INSERT INTO [practica1].[HistoryLog] (Description, [Date]) VALUES ('[TRANSACTION] Creada (PR3).', SYSDATETIME());
 		BEGIN TRANSACTION;
 	
 		DECLARE @UsuarioId UNIQUEIDENTIFIER;
@@ -63,12 +64,14 @@ BEGIN
 		SET @Message = 'Has sido asignado al curso ' + @NombreCurso + '.';
 		INSERT INTO [practica1].[Notification] (UserId, Message, [Date]) VALUES (@UsuarioId, @Message, SYSDATETIME());		
 		COMMIT TRANSACTION;
+		INSERT INTO [practica1].[HistoryLog] (Description, [Date]) VALUES ('[TRANSACTION] Commit (PR3).', SYSDATETIME());
 		PRINT('Curso asignado exitosamente.');
 	END TRY
 	BEGIN CATCH
 		IF @@TRANCOUNT > 0
 		BEGIN
 			ROLLBACK TRANSACTION;
+			INSERT INTO [practica1].[HistoryLog] (Description, [Date]) VALUES ('[TRANSACTION] Rollback (PR3).', SYSDATETIME());
 		END
 		
 		-- Devolver el error capturado
@@ -86,7 +89,7 @@ BEGIN
 END
 
 EXEC PR3
-	@Email = 'email@gmail.com',
+	@Email = 'javi.her@gmail.com',
 	@CodCourse = 970
 ;
 

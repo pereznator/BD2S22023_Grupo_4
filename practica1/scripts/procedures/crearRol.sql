@@ -44,7 +44,7 @@ END
 
 
 EXEC PR4
-	@RoleName = 'TestRole'
+	@RoleName = 'Director'
 ;
 
 

@@ -1,7 +1,7 @@
 USE BD2;
 
 -- Crear la funcion para listar los estudiantes de un curso en especifico.
-CREATE FUNCTION [practica1].[F2](@UsuarioId UNIQUEIDENTIFIER)
+CREATE FUNCTION [practica1].[F5](@UsuarioId UNIQUEIDENTIFIER)
 RETURNS TABLE
 AS
 RETURN

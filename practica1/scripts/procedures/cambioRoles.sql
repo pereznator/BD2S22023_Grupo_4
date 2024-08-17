@@ -99,8 +99,8 @@ END
 
 -- Usar procedimiento
 EXEC PR2
-	@Email = 'casaca@gmail.com',
-	@CodCourse = 5045
+	@Email = 'javi.her@gmail.com',
+	@CodCourse = 283
 ;
 
 -- Eliminar Procedimiento

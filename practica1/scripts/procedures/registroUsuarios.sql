@@ -91,12 +91,12 @@ END;
 
 -- Usar Procedimiento
 EXEC PR1
-	@Firstname = 'Jorge',
-	@Lastname = 'Perez',
-	@Email = 'email@gmail.com',
-	@DateOfBirth = '2000-06-07',
+	@Firstname = 'Javier',
+	@Lastname = 'Hernandez',
+	@Email = 'javi.her@gmail.com',
+	@DateOfBirth = '1996-06-07',
 	@Password = 'Ca$aca2000',
-	@Credits = 200
+	@Credits = 5
 ;
 
 -- Eliminar Procedimiento
