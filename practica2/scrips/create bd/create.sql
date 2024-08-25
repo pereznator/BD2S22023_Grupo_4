@@ -17,10 +17,12 @@ CREATE TABLE HABITACION(
 );
 
 -- log habitacion
-CREATE TABLE LOG_HABITACION(
-    timestampx  VARCHAR(100) PRIMARY KEY ,
+CREATE TABLE LOG_HABITACION (
+    id_log_habitacion INT NOT NULL AUTO_INCREMENT,
+    timestampx VARCHAR(100),
     statusx VARCHAR(45),
     idHabitacion INT,
+    PRIMARY KEY (id_log_habitacion),
     FOREIGN KEY (idHabitacion) REFERENCES HABITACION(idHabitacion)
 );
 
