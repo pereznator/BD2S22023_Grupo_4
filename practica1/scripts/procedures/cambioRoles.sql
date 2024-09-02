@@ -7,6 +7,7 @@ CREATE PROCEDURE PR2
 AS
 BEGIN
 	BEGIN TRY
+		INSERT INTO [practica1].[HistoryLog] (Description, [Date]) VALUES ('[TRANSACTION] Creada (PR2).', SYSDATETIME());
 		BEGIN TRANSACTION;
 	
 		DECLARE @UsuarioId UNIQUEIDENTIFIER;
@@ -49,22 +50,37 @@ BEGIN
 	       	ROLLBACK TRANSACTION;
 	        RETURN; -- Terminar la ejecución del procedimiento
 		END
+
+		IF EXISTS (SELECT 1 FROM [practica1].[CourseTutor] WHERE TutorId = @UsuarioId AND CourseCodCourse = @CodCourse)
+		BEGIN 
+			-- Si el tutor ya esta asignado al curso, devolver un mensaje de error
+	        RAISERROR('El tutor ya esta asignado al curso.', 16, 1);
+	       	ROLLBACK TRANSACTION;
+	        RETURN; -- Terminar la ejecución del procedimiento
+		END
 		
+
+		IF NOT EXISTS (SELECT 1 FROM [practica1].[TutorProfile] WHERE UserId = @UsuarioId)
+		BEGIN 
+			INSERT INTO [practica1].[TutorProfile] (UserId, TutorCode) VALUES (@UsuarioId, NEWID());		
+		END
+
 		DECLARE @Message NVARCHAR(max);
 		SET @Message = 'Has sido asignado al curso de ' + @NombreCurso;
-	
+		
 		INSERT INTO [practica1].[UsuarioRole] (RoleId, UserId, IsLatestVersion) VALUES (@RoleId, @UsuarioId, 1);
-		INSERT INTO [practica1].[TutorProfile] (UserId, TutorCode) VALUES (@UsuarioId, NEWID());
 		INSERT INTO [practica1].[CourseTutor] (TutorId, CourseCodCourse) VALUES (@UsuarioId, @CodCourse);
 		INSERT INTO [practica1].[Notification] (UserId, Message, [Date]) VALUES (@UsuarioId, @Message, SYSDATETIME());
 		
 		COMMIT TRANSACTION;
-		PRINT('Curso asi.');
+		INSERT INTO [practica1].[HistoryLog] (Description, [Date]) VALUES ('[TRANSACTION] Commit (PR2).', SYSDATETIME());
+		PRINT('Tutor asignado exitosamente.');
 	END TRY
 	BEGIN CATCH
 		IF @@TRANCOUNT > 0
 		BEGIN
 			ROLLBACK TRANSACTION;
+			INSERT INTO [practica1].[HistoryLog] (Description, [Date]) VALUES ('[TRANSACTION] Rollback (PR2).', SYSDATETIME());
 		END
 		
 		-- Devolver el error capturado
@@ -83,8 +99,8 @@ END
 
 -- Usar procedimiento
 EXEC PR2
-	@Email = 'email@gmail.com',
-	@CodCourse = 970
+	@Email = 'javi.her@gmail.com',
+	@CodCourse = 283
 ;
 
 -- Eliminar Procedimiento

@@ -13,7 +13,7 @@ AS
 BEGIN
 	
 	BEGIN TRY
-	
+		INSERT INTO [practica1].[HistoryLog] (Description, [Date]) VALUES ('[TRANSACTION] Creada (PR1).', SYSDATETIME());
 		BEGIN TRANSACTION;
 		DECLARE @UsuarioId UNIQUEIDENTIFIER;
 		
@@ -59,6 +59,7 @@ BEGIN
 		INSERT INTO [practica1].[Notification] (UserId, Message, [Date]) VALUES (@UsuarioId, 'Estas registrado en el sistema de la USAC!!', SYSDATETIME());
 	
 		COMMIT TRANSACTION;
+		INSERT INTO [practica1].[HistoryLog] (Description, [Date]) VALUES ('[TRANSACTION] Commit (PR1).', SYSDATETIME());
 	
 	 	PRINT('Usuario creado exitosamente!');
 	 
@@ -68,6 +69,7 @@ BEGIN
 		IF @@TRANCOUNT > 0
 		BEGIN
 			ROLLBACK TRANSACTION;
+			INSERT INTO [practica1].[HistoryLog] (Description, [Date]) VALUES ('[TRANSACTION] Rollback (PR1).', SYSDATETIME());
 		END
 		
 		-- Devolver el error capturado
@@ -89,12 +91,12 @@ END;
 
 -- Usar Procedimiento
 EXEC PR1
-	@Firstname = 'Jorge',
-	@Lastname = 'Perez',
-	@Email = 'email@gmail.com',
-	@DateOfBirth = '2000-06-07',
+	@Firstname = 'Javier',
+	@Lastname = 'Hernandez',
+	@Email = 'javi.her@gmail.com',
+	@DateOfBirth = '1996-06-07',
 	@Password = 'Ca$aca2000',
-	@Credits = 200
+	@Credits = 5
 ;
 
 -- Eliminar Procedimiento
