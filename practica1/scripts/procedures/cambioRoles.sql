@@ -34,7 +34,8 @@ BEGIN
 		IF @NombreCurso IS NULL
 		BEGIN 
 			-- Si no se encuentra curso, devolver un mensaje de error
-	        RAISERROR('No se encontró curso con ese codigo.', 16, 1);
+	        PRINT 'NO HAY CURSO';
+			RAISERROR('No se encontró curso con ese codigo.', 16, 1);
 	       	ROLLBACK TRANSACTION;
 	        RETURN; -- Terminar la ejecución del procedimiento
 		END
@@ -77,6 +78,7 @@ BEGIN
 		PRINT('Tutor asignado exitosamente.');
 	END TRY
 	BEGIN CATCH
+		PRINT 'Mensaje de error: ' + ERROR_MESSAGE();
 		IF @@TRANCOUNT > 0
 		BEGIN
 			ROLLBACK TRANSACTION;

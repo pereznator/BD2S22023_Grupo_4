@@ -1,0 +1,1 @@
+mysql -h bases2-mysql-grupo4.ctgk4yy8uh7e.us-east-2.rds.amazonaws.com -P 3306 -u admin -p

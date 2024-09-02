@@ -89,8 +89,8 @@ BEGIN
 END
 
 EXEC PR3
-	@Email = 'javi.her@gmail.com',
-	@CodCourse = 970
+	@Email = 'esau@gmail.com',
+	@CodCourse = 283
 ;
 
 -- Eliminar Procedimiento

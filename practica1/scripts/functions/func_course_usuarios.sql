@@ -13,7 +13,7 @@ RETURN
 );
 
 -- Ejecutar la funcion
-SELECT * FROM [practica1].[F1](970);
+SELECT * FROM [practica1].[F1](283);
 
 
 

@@ -12,7 +12,7 @@ RETURN
 );
 
 -- Ejecutar la funcion
-SELECT * FROM [practica1].[F3]('23FC39C4-1A67-488E-8C8E-4750DFA03BC7');
+SELECT * FROM [practica1].[F3]('09CD351A-FB0E-4F4D-AC85-AA9046BFFF5E');
 
 
 

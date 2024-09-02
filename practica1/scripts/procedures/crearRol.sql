@@ -44,7 +44,7 @@ END
 
 
 EXEC PR4
-	@RoleName = 'Director'
+	@RoleName = 'Rol Calificacion'
 ;
 
 

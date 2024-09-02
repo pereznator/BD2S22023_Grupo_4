@@ -58,7 +58,7 @@ END
 
 EXEC PR5
 	@CodCourse = 420,
-	@Name = 'Organizacion Computacional',
+	@Name = 'Nuevo Curso',
 	@CreditsRequired = 70
 ;
 
