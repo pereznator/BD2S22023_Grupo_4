@@ -1,0 +1,38 @@
+//request GET /pedido/:codigo_cliente
+
+//response GET /pedido/:codigo_cliente
+{
+  "codigo_cliente": "123e4567-e89b-12d3-a456-426614174002",
+  "pedido_id": "456e7890-e89b-12d3-a456-426614174004",
+  "descuento_aplicado": 100.00,
+  "fecha_pedido": "2024-10-02T15:30:00Z",
+  "tipo_cliente": "Regular",
+  "total_pedido": 2300.00,
+  "detalles": [
+    {
+      "imagen": "https://www.example.com/imagen1.jpg",
+      "codigo_producto": "abc12345-e89b-12d3-a456-426614174003",
+      "nombre_producto": "Laptop Gamer",
+      "cantidad": 2,
+      "precio_unitario": 1200.00,
+      "precio_total": 2400.00,
+      "codigo_bodega": "BOD123",
+      "codigo_cuarto_frio": "CF456"
+    },
+    {
+      "imagen": "https://www.example.com/imagen2.jpg",
+      "codigo_producto": "xyz98765-e89b-12d3-a456-426614174005",
+      "nombre_producto": "Mouse Inalámbrico",
+      "cantidad": 1,
+      "precio_unitario": 50.00,
+      "precio_total": 50.00,
+      "codigo_bodega": "BOD123",
+      "codigo_cuarto_frio": "CF456"
+    }
+  ]
+}
+
+//request POST /pedido/:codigo_cliente
+
+
+//response POST /pedido/:codigo_cliente

@@ -1,0 +1,35 @@
+//request GET /reporte_cliente?codigo_cliente=123e4567&fecha_inicio=2024-10-01&fecha_fin=2024-10-31
+
+//response GET /reporte_cliente?codigo_cliente=123e4567&fecha_inicio=2024-10-01&fecha_fin=2024-10-31
+{
+    "total_pedidos": 10000000,
+    "pedidos":[
+        {
+            "nombre_cliente": "Comercial XYZ",
+            "codigo_cliente": "123e4567-e89b-12d3-a456-426614174002",
+            "pedido_id": "456e7890-e89b-12d3-a456-426614174004",
+            "descuento_aplicado": 100.00,
+            "fecha_pedido": "2024-10-02T15:30:00Z",
+            "tipo_cliente": "Regular",
+            "total_pedido": 2300.00
+        },
+        {
+            "nombre_cliente": "Comercial XYZ",
+            "codigo_cliente": "123e4567-e89b-12d3-a456-426614174002",
+            "pedido_id": "456e7890-e89b-12d3-a456-426614174004",
+            "descuento_aplicado": 100.00,
+            "fecha_pedido": "2024-10-02T15:30:00Z",
+            "tipo_cliente": "Regular",
+            "total_pedido": 2300.00
+        },
+        {
+            "nombre_cliente": "Comercial XYZ",
+            "codigo_cliente": "123e4567-e89b-12d3-a456-426614174002",
+            "pedido_id": "456e7890-e89b-12d3-a456-426614174004",
+            "descuento_aplicado": 100.00,
+            "fecha_pedido": "2024-10-02T15:30:00Z",
+            "tipo_cliente": "Regular",
+            "total_pedido": 2300.00
+        }
+    ]
+}

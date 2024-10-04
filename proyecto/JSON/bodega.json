@@ -1,0 +1,58 @@
+//request GET /bodegas
+
+//response GET /bodegas
+[
+    {
+        "codigo": "bodega_01",
+        "capacidad": 1000,
+        "cuartos_frios":[
+            {
+                "codigo_cuarto_frio": "cuarto_frio_01",
+                "capacidad": 500,
+                "temperatura": 2.5
+            }
+        ]
+    },
+    {
+        "codigo": "bodega_01",
+        "capacidad": 1000,
+        "cuartos_frios":[
+            {
+                "codigo_cuarto_frio": "cuarto_frio_01",
+                "capacidad": 500,
+                "temperatura": 2.5
+            }
+        ] 
+    }
+]
+
+//request POST /bodegas
+{
+    "codigo": "bodega_01",
+    "capacidad": 1000 
+}
+
+//response POST /bodegas
+//No importa
+
+
+//request DELETE /bodegas/:codigo
+
+//response DELETE /bodegas/:codigo
+//No importa
+
+//---------------------------------------------------CUARTOS FRIOS
+
+//request POST /cuartos_frios
+{
+    "codigo_bodega": "bodega_01",
+    "codigo_cuarto_frio": "cuarto_frio_01",
+    "capacidad": 500,
+    "temperatura": 2.5
+}
+
+//response POST /cuartos_frios
+//No importa
+
+//request DELETE /cuartos_frios/:codigo_bodega/:codigo_cuarto_frio
+

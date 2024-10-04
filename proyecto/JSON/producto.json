@@ -1,0 +1,138 @@
+//request GET productos /productos?nombre=nombreproducto
+
+//response GET productos /productos?nombre=nombreproducto
+[
+  {
+    "imagen": "https://www.laptop.com/imagen.jpg",
+    "codigo": "P0001",
+    "nombre": "Leche Entera",
+    "fabricante": "Lácteos S.A.",
+    "marca": "La Mejor",
+    "precio_actual": 1.50,
+    "codigo_bodega": "BOD123",
+    "codigo_cuarto_frio": "CF456", // opcional
+    "disponible": true,
+    "historico_precios": [
+      {
+        "fecha": "2024-10-02T15:30:00Z",
+        "precio": 1.50
+      },
+      {
+        "fecha": "2024-10-02T15:30:00Z",
+        "precio": 1.50
+      }
+    ]
+  },
+  {
+    "imagen": "https://www.laptop.com/imagen.jpg",
+    "codigo": "P0002",
+    "nombre": "Leche Entera",
+    "fabricante": "Lácteos S.A.",
+    "marca": "La Mejor",
+    "precio_actual": 1.50,
+    "codigo_bodega": "BOD123",
+    "codigo_cuarto_frio": "CF456", // opcional
+    "disponible": true,
+    "historico_precios": [
+      {
+        "fecha": "2024-10-02T15:30:00Z",
+        "precio": 1.50
+      },
+      {
+        "fecha": "2024-10-02T15:30:00Z",
+        "precio": 1.50
+      }
+    ]
+  }
+]
+
+//request POST productos /productos
+{
+  "imagen": "https://www.laptop.com/imagen.jpg",
+  "nombre": "Leche Entera",
+  "fabricante": "Lácteos S.A.",
+  "marca": "La Mejor",
+  "precio_actual": 1.50,
+  "codigo_bodega": "BOD123",
+  "codigo_cuarto_frio": "CF456" // opcional
+}
+
+//response POST producto /productos
+//No importa
+
+//request DELETE productos /productos/:codigo
+
+//response DELETE productos /productos/:codigo
+//No importa
+
+
+//request PUT productos /productos/:codigo
+{
+  "imagen": "https://www.laptop.com/imagen.jpg",
+  "nombre": "Leche Entera",
+  "fabricante": "Lácteos S.A.",
+  "marca": "La Mejor",
+  "precio_actual": 1.50,
+  "codigo_bodega": "BOD123",
+  "codigo_cuarto_frio": "CF456"
+}
+
+//response PUT productos /productos/:codigo
+//No importa
+
+
+
+//request POST carrito /carrito
+{
+  "codigo_cliente": "123e4567-e89b-12d3-a456-426614174002",
+  "codigo_producto": "abc12345-e89b-12d3-a456-426614174003",
+  "cantidad": 1,
+  "nombre_producto": "Laptop Gamer",
+  "precio_unitario": 1200.00,
+  "subtotal": 2400.00,
+  "ordenado": false
+}
+
+//response POST carrito /carrito
+{
+  "codigo_cliente": "123e4567-e89b-12d3-a456-426614174002",
+  "codigo_producto": "abc12345-e89b-12d3-a456-426614174003",
+  "cantidad": 1,
+  "nombre_producto": "Laptop Gamer",
+  "precio_unitario": 1200.00,
+  "subtotal": 2400.00,
+  "ordenado": false
+}
+
+//request PUT carrito /carrito
+{
+  "codigo_cliente": "123e4567-e89b-12d3-a456-426614174002",
+  "codigo_producto": "abc12345-e89b-12d3-a456-426614174003",
+  "cantidad": 1
+}
+
+//response PUT carrito /carrito
+{
+  "codigo_cliente": "123e4567-e89b-12d3-a456-426614174002",
+  "codigo_producto": "abc12345-e89b-12d3-a456-426614174003",
+  "cantidad": 1
+}
+
+//request DELETE carrito /carrito/:codigo_cliente/:codigo_producto
+
+
+//request GET carrito /carrito/:codigo_cliente
+
+//response GET carrito /carrito/:codigo_cliente
+[
+  {
+    "codigo_cliente": "123e4567-e89b-12d3-a456-426614174002",
+    "codigo_producto": "abc12345-e89b-12d3-a456-426614174003",
+    "cantidad": 1,
+    "nombre_producto": "Laptop Gamer",
+    "precio_unitario": 1200.00,
+    "subtotal": 2400.00,
+    "ordenado": false
+  }
+]
+

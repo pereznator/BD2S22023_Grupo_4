@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  cassandra:
+    image: cassandra:latest
+    container_name: cassandra
+    environment:
+      CASSANDRA_CLUSTER_NAME: "MiCluster"
+      CASSANDRA_DC: "MiDC"
+      CASSANDRA_RACK: "MiRack"
+      CASSANDRA_SEEDS: "cassandra"
+    ports:
+      - "9042:9042"  # Puerto para CQL
+    volumes:
+      - ./cassandra_data:/var/lib/cassandra  # Montar un directorio local
+    networks:
+      - app-network
+  nodejs-api:
+    build:
+      context: ..
+      dockerfile: Dockerfile  # Ajustar la ruta del Dockerfile
+    container_name: nodejs-api
+    environment:
+      - CASSANDRA_HOST=cassandra
+      - CASSANDRA_PORT=9042
+    depends_on:
+      - cassandra  # Espera a que Cassandra esté listo antes de iniciar la API
+    ports:
+      - "3000:3000"  # Puerto para la API
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+

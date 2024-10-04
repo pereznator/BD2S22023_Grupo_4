@@ -1,0 +1,72 @@
+//request crear del cliente POST
+{
+  "nombre": "Comercial XYZ",
+  "direccion": "Avenida Central 123, Ciudad, País",
+  "telefono": "+123456789",
+  "representantelegal": "Juan Pérez"
+}
+
+//response crear del server
+{
+  "codigo": "C0001",
+  "nombre": "Comercial XYZ",
+  "direccion": "Avenida Central 123, Ciudad, País",
+  "telefono": "+123456789",
+  "representantelegal": "Juan Pérez",
+  "tipo": "A", // A, B o C
+  "descuento": 0.15 // segun el tipo
+}
+
+//request Login
+{
+  "codigo": "C0001"
+}
+
+//response login del server
+{
+  "codigo": "C0001",
+  "nombre": "Comercial XYZ",
+  "direccion": "Avenida Central 123, Ciudad, País",
+  "telefono": "+123456789",
+  "representantelegal": "Juan Pérez",
+  "tipo": "A", // A, B o C
+  "descuento": 0.15 // segun el tipo
+}
+
+//request GET /clientes
+
+//response GET /clientes
+[
+  {
+    "codigo": "C0001",
+    "nombre": "Comercial XYZ",
+    "direccion": "Avenida Central 123, Ciudad, País",
+    "telefono": "+123456789",
+    "representantelegal": "Juan Pérez",
+    "tipo": "A", // A, B o C
+    "descuento": 0.15 // segun el tipo
+  },
+  {
+    "codigo": "C0001",
+    "nombre": "Comercial XYZ",
+    "direccion": "Avenida Central 123, Ciudad, País",
+    "telefono": "+123456789",
+    "representantelegal": "Juan Pérez",
+    "tipo": "A", // A, B o C
+    "descuento": 0.15 // segun el tipo
+  },
+  {
+    "codigo": "C0001",
+    "nombre": "Comercial XYZ",
+    "direccion": "Avenida Central 123, Ciudad, País",
+    "telefono": "+123456789",
+    "representantelegal": "Juan Pérez",
+    "tipo": "A", // A, B o C
+    "descuento": 0.15 // segun el tipo
+  }
+]
+
+//request PUT /clientes/:codigo
+{
+  "tipo": "A"
+}

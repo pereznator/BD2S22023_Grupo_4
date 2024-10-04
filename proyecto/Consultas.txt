@@ -1,0 +1,34 @@
+ADMINISTRADOR:
+  1. Clientes
+    1.1 Ver Clientes
+    1.2 Crear Cliente
+    1.3 Actualizar Cliente
+    1.4 Eliminar Cliente
+    1.5 Ver Historial de Pedidos de Cliente
+  2. Productos
+    2.1 Ver Productos
+    2.2 Crear Producto
+    2.3 Actualizar Producto (Actualizar Precio)
+    2.4 Eliminar Producto
+  3. Ver Bodegas
+    3.1 Ver Bodegas
+    3.2 Crear Bodega
+    3.3 Actualizar Bodega
+    3.4 Eliminar Bodega
+    3.5 Ver Cuartos Frios de Bodega
+    3.6 Crear Cuarto Frio de Bodega
+    3.7 Actualizar Cuarto Frio de Bodega
+    3.8 Eliminar Cuarto Frio de Bodega
+  4. Pedidos
+    4.1 Ver pedidos
+    4.2 Ver detalles de pedido (producto, cantidad, precio, precio unitario * cantidad, bodega en que se encuentra)
+
+CLIENTE:
+  1. Productos
+    1.1 Ver Productos
+    1.2 Buscar Productos por Nombre
+    1.3 Agregar productos a carrito (escoger producto y cantidad)
+  2. Pedidos
+    2.1 Crear Pedido
+    2.2 Ver Pedidos de Cliente
+    2.3 Ver Detalles de pedido (producto, cantidad, precio, precio unitario * cantidad, bodega en que se encuentra)
