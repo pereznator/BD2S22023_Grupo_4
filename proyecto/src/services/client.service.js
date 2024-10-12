@@ -24,6 +24,10 @@ class ClientService {
     const result = await client.execute(`SELECT * FROM clientes WHERE codigo = ?;`, [id], { prepare: true });
     return result.rows.length > 0 ? result.rows[0] : null;
   }
+
+  async actualizarTipoCliente({ codigo, tipo }) {
+    await client.execute(`UPDATE clientes SET tipo = ? WHERE codigo = ?;`, [tipo, codigo], { prepare: true });
+  }
 }
 
 const clientService = new ClientService()
