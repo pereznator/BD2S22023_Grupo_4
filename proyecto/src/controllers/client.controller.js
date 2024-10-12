@@ -53,4 +53,24 @@ const obtenerClientePorIdController = async(req, res) => {
   }
 }
 
-module.exports = { listClientsController, createClientController, obtenerClientePorIdController }
+const actualizarClienteController = async(req, res) => {
+  try {
+    const { codigo } = req.params;
+    const { tipo } = req.body;
+    if (!codigo) {
+      throw new Error('El código del cliente es requerido.');
+    }
+    if (!tipo) {
+      throw new Error('El tipo de cliente es requerido.');
+    }
+    await clientService.actualizarTipoCliente({codigo, tipo});
+
+    const cliente = await clientService.obtenerClientePorId(codigo);
+    return res.status(200).json(cliente);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: 'Error en el servidor.', error: error.toString() });
+  }
+};
+
+module.exports = { listClientsController, createClientController, obtenerClientePorIdController, actualizarClienteController }
