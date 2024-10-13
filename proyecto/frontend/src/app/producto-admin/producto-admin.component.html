@@ -1,0 +1,44 @@
+<div *ngIf="operacion == 'editar'">
+  <h1>Editar producto</h1>
+  <h2>{{ datosProducto.get('codigo').value }}</h2>
+</div>
+
+<form class="container" (ngSubmit)="onSubmit()" [formGroup]="datosProducto">
+  <mat-form-field *ngIf="operacion == 'crear'">
+    <input matInput formControlName="codigo" placeholder="Codigo producto">
+    <mat-error *ngIf="datosProducto.get('codigo').hasError('required')">
+      Campo es <strong>requerido</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="nombre" placeholder="Nombre producto">
+    <mat-error *ngIf="datosProducto.get('nombre').hasError('required')">
+      Campo es <strong>requerido</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="marca" placeholder="Marca">
+    <mat-error *ngIf="datosProducto.get('marca').hasError('required')">
+      Campo es <strong>requerido</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="fabricante" placeholder="Fabricante">
+    <mat-error *ngIf="datosProducto.get('fabricante').hasError('required')">
+      Campo es <strong>requerido</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="precio" placeholder="Precio">
+    <mat-error *ngIf="datosProducto.get('precio').hasError('required')">
+      Campo es <strong>requerido</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="bodega" placeholder="Bodega">
+    <mat-error *ngIf="datosProducto.get('bodega').hasError('required')">
+      Campo es <strong>requerido</strong>
+    </mat-error>
+  </mat-form-field>
+  <button mat-stroked-button type="submit" [disabled]="datosProducto.invalid">{{operacion.toUpperCase()}}</button>
+</form>

@@ -1,0 +1,19 @@
+<mat-card *ngFor="let pedido of pedidos; index as i" class="card-pedido">
+  <mat-card-header>
+    <mat-card-title>Pedido #{{ i + 1 }}</mat-card-title>
+    <mat-card-subtitle>Total: {{ pedido.total_pedido }}<br>Descuento: {{ pedido.descuento_aplicado }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-card *ngFor="let itemPedido of pedido.detalles; index as j" class="card-item">
+      <mat-card-content>
+        <img mat-card-image [src]="itemPedido.imagen" alt="Photo of a Shiba Inu">
+        <p>
+          {{ itemPedido.nombre_producto }}<br>
+          Precio unitario: {{ itemPedido.precio_unitario  }}<br>
+          cantidad: {{ itemPedido.cantidad }}<br>
+          Subtotal: {{ itemPedido.precio_total }}<br>
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </mat-card-content>
+</mat-card>

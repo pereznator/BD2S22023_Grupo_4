@@ -1,0 +1,35 @@
+
+<mat-grid-list cols="4" rowHeight="2:1">
+<mat-card *ngFor="let item of carrito; index as i" class="example-card">
+  <img mat-card-image [src]="item.imagen" alt="item">
+  <mat-card-header>
+    <mat-card-title>{{ item.nombre_producto }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      Precio unitario: {{ item.precio_unitario }}
+    </p>
+    <mat-form-field>
+      <input matInput type="number" [formControl]="cantidades[i]" min="1">
+      <mat-error *ngIf="cantidades[i].invalid">Min size: 10px</mat-error>
+    </mat-form-field>
+    <button mat-button (click)="actualizarItem(i)">Actualizar</button>
+    <button mat-button (click)="eliminarItem(i)">Eliminar</button>
+  </mat-card-content>
+</mat-card>
+</mat-grid-list>
+
+
+
+<mat-card class="example-card">
+  <mat-card-content>
+    <p>
+      Subtotal: {{ subtotal }}<br>
+      Descuento: {{ descuento }}<br>
+      Total: {{ total }}<br>
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="onClickcomprar()">Comprar</button>
+  </mat-card-actions>
+</mat-card>

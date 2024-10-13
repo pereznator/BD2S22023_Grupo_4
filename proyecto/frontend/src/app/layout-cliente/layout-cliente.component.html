@@ -1,0 +1,13 @@
+<mat-toolbar>
+  <span (click)="onClickInfo()">{{ cliente.nombre }}</span>
+
+  <span class="example-spacer"></span>
+  <mat-button-toggle-group #group="matButtonToggleGroup">
+    <mat-button-toggle value="store" routerLink="store">Tienda</mat-button-toggle>
+    <mat-button-toggle value="carrito" routerLink="carrito">Carrito</mat-button-toggle>
+    <mat-button-toggle value="compras" routerLink="compras">Pedidos</mat-button-toggle>
+    <mat-button-toggle value="logout" (click)="logout()">Cerrar Sesión</mat-button-toggle>
+  </mat-button-toggle-group>
+</mat-toolbar>
+
+<router-outlet></router-outlet>
