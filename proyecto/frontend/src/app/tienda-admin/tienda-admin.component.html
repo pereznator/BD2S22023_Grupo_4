@@ -2,25 +2,28 @@
 <input matInput [formControl]="nombre" placeholder="Por nombre">
 <button mat-button (click)="crearProducto()">Nuevo producto</button>
 
-<div *ngFor="let producto of productos; index as i">
-  <mat-card *ngIf="nombre.value == ''? true : producto.nombre.toLowerCase().includes(nombre.value.toLowerCase())" class="example-card">
-    <mat-card-header>
-      <mat-card-title>{{ producto.nombre }}</mat-card-title>
-      <mat-card-subtitle>{{ producto.marca }}</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image [src]="producto.imagen" alt="Producto">
-    <mat-card-content>
-      <p>
-        Fabricante: {{ producto.fabricante }}<br>
-        Precio: {{ producto.precio_actual }}<br>
-        Código bodega: {{producto.codigo_bodega}}<br>
-        Código cuarto frío: {{producto.codigo_cuarto_frio}}<br>
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button (click)="editarProducto(i)">Editar</button>
-      <button mat-button (click)="eliminarProducto(i)">Eliminar</button>
-      <button mat-button (click)="verHistoricoProducto(i)">Histórico Precios</button>
-    </mat-card-actions>
-  </mat-card>
+<div class="center-content">
+
+  <div *ngFor="let producto of productos; index as i">
+    <mat-card *ngIf="nombre.value == ''? true : producto.nombre.toLowerCase().includes(nombre.value.toLowerCase())" class="example-card">
+      <mat-card-header>
+        <mat-card-title>{{ producto.nombre }}</mat-card-title>
+        <mat-card-subtitle>{{ producto.marca }}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="producto.imagen" alt="Producto">
+      <mat-card-content>
+        <p>
+          Fabricante: {{ producto.fabricante }}<br>
+          Precio: {{ producto.precio_actual }}<br>
+          Código bodega: {{producto.codigo_bodega}}<br>
+          Código cuarto frío: {{producto.codigo_cuarto_frio}}<br>
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button (click)="editarProducto(i)">Editar</button>
+        <button mat-button (click)="eliminarProducto(i)">Eliminar</button>
+        <button mat-button (click)="verHistoricoProducto(i)">Histórico Precios</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
 </div>

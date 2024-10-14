@@ -1,3 +1,11 @@
 .example-card {
   max-width: 200px;
+  margin: 10px;
+}
+
+.center-content {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  padding: 10px;
 }

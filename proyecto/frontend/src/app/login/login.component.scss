@@ -1,0 +1,24 @@
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Centra verticalmente */
+  gap: 20px; /* Espaciado entre los elementos */
+}
+
+mat-form-field, button {
+  width: 100%; /* Asegura que el formulario ocupe todo el ancho disponible */
+  max-width: 300px; /* Limita el ancho máximo para que no sea muy grande */
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.crear {
+  display: flex;
+  justify-content: center;
+  margin: 15px;
+  text-align: center;
+}
