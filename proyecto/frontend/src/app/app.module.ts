@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
 
-import { MatButtonModule, MatFormFieldModule, MatInputModule, MatSliderModule } from '@angular/material';
+import { DateAdapter, MatButtonModule, MatDatepicker, MatDatepickerModule, MatFormFieldModule, MatInputModule, MatNativeDateModule, MatSelectModule, MatSliderModule, MatTableModule } from '@angular/material';
 import { MatToolbarModule, MatButtonToggleModule, MatCardModule, MatGridListModule } from '@angular/material';
 import { DialogComponent } from './dialog/dialog.component';
 import { SigninComponent } from './signin/signin.component';
@@ -20,6 +20,12 @@ import { PedidosComponent } from './pedidos/pedidos.component';
 import { LayoutAdminComponent } from './layout-admin/layout-admin.component';
 import { TiendaAdminComponent } from './tienda-admin/tienda-admin.component';
 import { ProductoAdminComponent } from './producto-admin/producto-admin.component';
+import { HistorialPreciosComponent } from './historial-precios/historial-precios.component';
+import { BodegasComponent } from './bodegas/bodegas.component';
+import { BodegaOperacionComponent } from './bodega-operacion/bodega-operacion.component';
+import { CuartosFriosComponent } from './cuartos-frios/cuartos-frios.component';
+import { CuartosFriosOperacionComponent } from './cuartos-frios-operacion/cuartos-frios-operacion.component';
+import { ReporteComprasComponent } from './reporte-compras/reporte-compras.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +39,13 @@ import { ProductoAdminComponent } from './producto-admin/producto-admin.componen
     PedidosComponent,
     LayoutAdminComponent,
     TiendaAdminComponent,
-    ProductoAdminComponent
+    ProductoAdminComponent,
+    HistorialPreciosComponent,
+    BodegasComponent,
+    BodegaOperacionComponent,
+    CuartosFriosComponent,
+    CuartosFriosOperacionComponent,
+    ReporteComprasComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +62,11 @@ import { ProductoAdminComponent } from './producto-admin/producto-admin.componen
     MatToolbarModule,
     MatButtonToggleModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    MatTableModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent],

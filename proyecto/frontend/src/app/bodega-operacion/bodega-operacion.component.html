@@ -1,0 +1,17 @@
+<h1>Nueva Bodega</h1>
+
+<form class="container" (ngSubmit)="onSubmit()" [formGroup]="dataBodega">
+  <mat-form-field>
+    <input matInput formControlName="codigo" placeholder="Nombre Bodega">
+    <mat-error *ngIf="dataBodega.get('codigo').hasError('required')">
+      Campo es <strong>requerido</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="capacidad" placeholder="Capacidad">
+    <mat-error *ngIf="dataBodega.get('capacidad').hasError('required')">
+      Campo es <strong>requerido</strong>
+    </mat-error>
+  </mat-form-field>
+  <button mat-stroked-button type="submit" [disabled]="dataBodega.invalid">CREAR</button>
+</form>

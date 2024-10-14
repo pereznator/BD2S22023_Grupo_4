@@ -30,10 +30,28 @@ export class TiendaAdminComponent implements OnInit {
   }
 
   editarProducto(i: number) {
-    this.router.navigate(["/admin/producto"], { queryParams: {
-      "codigo": this.productos[i].codigo,
-      "operacion": "editar"
-    }})
+    const { codigo, imagen, nombre, fabricante, marca, precio_actual, codigo_bodega, codigo_cuarto_frio } = this.productos[i];
+    this.router.navigate(["/admin/producto"], { queryParams: {codigo, imagen, nombre, fabricante,
+      marca, precio_actual, codigo_bodega, codigo_cuarto_frio, "operacion": "editar"}})
+  }
+
+  eliminarProducto(i: number) {
+    this.apiHandle.deleteProducto(this.productos[i].codigo).subscribe(() => {
+      this.dialog.open(DialogComponent, {data: {title: "Información", message: "Producto eliminado"}})
+      this.productos.splice(i, 1)
+    }, (error) => {
+      console.log(error)
+      this.dialog.open(DialogComponent, {data: {title: "Error", message: "Error en el servicio"}})
+    })
+  }
+
+  verHistoricoProducto(i: number) {
+    const historico_precios = JSON.stringify(this.productos[i].historico_precios);
+    this.router.navigate(["/admin/historico-precio"], { queryParams: {codigo: this.productos[i].codigo, historico: historico_precios}})
+  }
+
+  crearProducto() {
+    this.router.navigate(["/admin/producto"], { queryParams: {"operacion": "crear"}})
   }
 
 }

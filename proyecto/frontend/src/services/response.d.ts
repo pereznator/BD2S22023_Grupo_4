@@ -55,3 +55,31 @@ export declare interface Pedido {
   tipo_cliente: string,
   total_pedido: number
 }
+
+export declare interface CuartoFrio {
+  codigo_cuarto_frio: string,
+  capacidad: number,
+  temperatura: number
+}
+
+export declare interface Bodega {
+  codigo: string,
+  capacidad: number,
+  cuartos_frios: CuartoFrio[]
+}
+
+export declare interface ItemPedidoReporte {
+  codigo_cliente: string,
+  fecha: string,
+  pedido_id: string,
+  descuento_aplicado: number,
+  nombre_cliente: string,
+  detalles: ItemPedidoReporte[],
+  tipo_cliente: string,
+  total: number
+}
+
+export declare interface ReporteCliente {
+  pedidos: ItemPedidoReporte[],
+  total_pedidos: number
+}

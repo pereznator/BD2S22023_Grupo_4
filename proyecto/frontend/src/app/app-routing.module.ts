@@ -11,6 +11,12 @@ import { PedidosComponent } from './pedidos/pedidos.component';
 import { LayoutAdminComponent } from './layout-admin/layout-admin.component';
 import { TiendaAdminComponent } from './tienda-admin/tienda-admin.component';
 import { ProductoAdminComponent } from './producto-admin/producto-admin.component';
+import { HistorialPreciosComponent } from './historial-precios/historial-precios.component';
+import { BodegasComponent } from './bodegas/bodegas.component';
+import { BodegaOperacionComponent } from './bodega-operacion/bodega-operacion.component';
+import { CuartosFriosComponent } from './cuartos-frios/cuartos-frios.component';
+import { CuartosFriosOperacionComponent } from './cuartos-frios-operacion/cuartos-frios-operacion.component';
+import { ReporteComprasComponent } from './reporte-compras/reporte-compras.component';
 
 const routes: Routes = [
   {path: "login", component: LoginComponent},
@@ -46,6 +52,30 @@ const routes: Routes = [
       {
         path: "producto",
         component: ProductoAdminComponent,
+      },
+      {
+        path: "historico-precio",
+        component: HistorialPreciosComponent
+      },
+      {
+        path: "bodegas",
+        component: BodegasComponent
+      },
+      {
+        path: "bodega",
+        component: BodegaOperacionComponent
+      },
+      {
+        path: "cuartos-frios",
+        component: CuartosFriosComponent
+      },
+      {
+        path: "cuarto-operacion",
+        component: CuartosFriosOperacionComponent
+      },
+      {
+        path: "compras",
+        component: ReporteComprasComponent
       }
     ]
   }

@@ -1,0 +1,24 @@
+<h1>Nuevo Cuarto frío</h1>
+<h3>Código Bodega: {{codigoBodega}}</h3>
+
+<form class="container" (ngSubmit)="onSubmit()" [formGroup]="dataCuarto">
+  <mat-form-field>
+    <input matInput formControlName="codigo_cuarto_frio" placeholder="Nombre">
+    <mat-error *ngIf="dataCuarto.get('codigo_cuarto_frio').hasError('required')">
+      Campo es <strong>requerido</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="capacidad" placeholder="Capacidad">
+    <mat-error *ngIf="dataCuarto.get('capacidad').hasError('required')">
+      Campo es <strong>requerido</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="temperatura" placeholder="Temperatura">
+    <mat-error *ngIf="dataCuarto.get('temperatura').hasError('required')">
+      Campo es <strong>requerido</strong>
+    </mat-error>
+  </mat-form-field>
+  <button mat-stroked-button type="submit" [disabled]="dataCuarto.invalid">CREAR</button>
+</form>

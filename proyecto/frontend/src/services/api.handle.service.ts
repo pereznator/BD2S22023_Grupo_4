@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from "@angular/core";
 
-import { Cliente, Producto, ItemCarrito, Pedido } from './response';
+import { Cliente, Producto, ItemCarrito, Pedido, Bodega, CuartoFrio, ReporteCliente } from './response';
 import { environment } from '../environments/environment.prod';
 import { Observable } from 'rxjs';
 
@@ -10,6 +10,12 @@ export class ClientePost {
   nombre: string
   representantelegal: string
   telefono: string
+}
+
+export class ReporteBody {
+  codigo_cliente: string
+  fecha_inicio: string
+  fecha_fin: string
 }
 
 @Injectable({
@@ -86,6 +92,46 @@ export class ApiHandle {
     if (codigo_cliente) {
       return this.httpClient.get<Pedido[]>(`${this.API_URL}/pedidos/${codigo_cliente}`)
     }
+  }
+
+  putProducto(codigo: string, body: Producto) {
+    return this.httpClient.put<Producto>(`${this.API_URL}/productos/${codigo}`, body)
+  }
+
+  deleteProducto(codigo_producto: string) {
+    return this.httpClient.delete<{message: string}>(`${this.API_URL}/productos/${codigo_producto}`)
+  }
+
+  postProducto(body: Producto) {
+    return this.httpClient.post<Producto>(`${this.API_URL}/productos`, body)
+  }
+
+  getBodegas(): Observable<Bodega[]> {
+    return this.httpClient.get<Bodega[]>(`${this.API_URL}/bodegas`)
+  }
+
+  postBodega(body: Bodega) {
+    return this.httpClient.post<Bodega>(`${this.API_URL}/bodegas`, body)
+  }
+
+  deleteBodega(codigo: string) {
+    return this.httpClient.delete<{message: string}>(`${this.API_URL}/bodegas/${codigo}`)
+  }
+
+  deleteCuarto(codigoBodega: string, codigoCuarto: string) {
+    return this.httpClient.delete<{message: string}>(`${this.API_URL}/cuartos_frios/${codigoBodega}/${codigoCuarto}`)
+  }
+
+  postCuarto(codigo_bodega: string, body: CuartoFrio) {
+    return this.httpClient.post<CuartoFrio>(`${this.API_URL}/cuartos_frios`, {...body, codigo_bodega})
+  }
+
+  getReporte(body: ReporteBody) {
+    return this.httpClient.get<ReporteCliente>(`${this.API_URL}/reporte_cliente`, {params: {...body}})
+  }
+
+  putClientes(data: {codigo_cliente: string, tipo: string}): Observable<Cliente> {
+    return this.httpClient.put<Cliente>(`${this.API_URL}/clientes/${data.codigo_cliente}`, {tipo: data.tipo})
   }
 
   // Método para saber si el usuario está autenticado
