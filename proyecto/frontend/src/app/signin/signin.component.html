@@ -1,0 +1,28 @@
+<h1>Crear Cuenta</h1>
+<form class="container" (ngSubmit)="creaCuenta()" [formGroup]="datosCliente">
+  <mat-form-field>
+    <input matInput formControlName="nombre" placeholder="Nombre Empresa">
+    <mat-error *ngIf="datosCliente.get('nombre').hasError('required')">
+      Campo es <strong>requerido</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="representantelegal" placeholder="Representante legal">
+    <mat-error *ngIf="datosCliente.get('representantelegal').hasError('required')">
+      Campo es <strong>requerido</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="telefono" placeholder="Teléfono">
+    <mat-error *ngIf="datosCliente.get('telefono').hasError('required')">
+      Campo es <strong>requerido</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="direccion" placeholder="Dirección">
+    <mat-error *ngIf="datosCliente.get('direccion').hasError('required')">
+      Campo es <strong>requerido</strong>
+    </mat-error>
+  </mat-form-field>
+  <button mat-stroked-button type="submit" [disabled]="datosCliente.invalid">Crear</button>
+</form>

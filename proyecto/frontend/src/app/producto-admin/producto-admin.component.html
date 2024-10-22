@@ -1,0 +1,58 @@
+<div *ngIf="operacion == 'editar'">
+  <h1>Editar producto</h1>
+  <h2>{{ datosProducto.get('codigo').value }}</h2>
+</div>
+
+<div *ngIf="operacion == 'crear'">
+  <h1>Nuevo producto</h1>
+</div>
+
+<form class="container" (ngSubmit)="onSubmit()" [formGroup]="datosProducto">
+  <mat-form-field>
+    <input matInput formControlName="imagen" placeholder="Imagen">
+    <mat-error *ngIf="datosProducto.get('imagen').hasError('required')">
+      Campo es <strong>requerido</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="nombre" placeholder="Nombre producto">
+    <mat-error *ngIf="datosProducto.get('nombre').hasError('required')">
+      Campo es <strong>requerido</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="marca" placeholder="Marca">
+    <mat-error *ngIf="datosProducto.get('marca').hasError('required')">
+      Campo es <strong>requerido</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="fabricante" placeholder="Fabricante">
+    <mat-error *ngIf="datosProducto.get('fabricante').hasError('required')">
+      Campo es <strong>requerido</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="precio_actual" placeholder="Precio">
+    <mat-error *ngIf="datosProducto.get('precio_actual').hasError('required')">
+      Campo es <strong>requerido</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Código Bodega</mat-label>
+    <mat-select formControlName="codigo_bodega" name="food">
+      <mat-option *ngFor="let bodega of bodegas" [value]="bodega.codigo">
+        {{bodega.codigo}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Código Cuarto frio</mat-label>
+    <mat-select formControlName="codigo_cuarto_frio" name="food">
+      <mat-option *ngFor="let cuarto of bodegaActual()" [value]="cuarto.codigo_cuarto_frio">
+        {{cuarto.codigo_cuarto_frio}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-stroked-button type="submit" [disabled]="datosProducto.invalid">{{operacion.toUpperCase()}}</button>
+</form>

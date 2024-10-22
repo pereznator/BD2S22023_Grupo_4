@@ -1,0 +1,15 @@
+<button class="crear" mat-stroked-button (click)="onClickSign()">CREAR CUENTA</button>
+<div class="center-content">
+  <h1>Login</h1>
+  <form class="login" (ngSubmit)="onClickLogin()">
+    <mat-form-field class="example-full-width">
+      <input matInput [formControl]="usuario">
+      <mat-error *ngIf="usuario.hasError('required')">
+        Campo es <strong>requerido</strong>
+      </mat-error>
+    </mat-form-field>
+    <button mat-stroked-button type="submit" [disabled]="usuario.hasError('required')">Acceder</button>
+  </form>
+
+
+</div>

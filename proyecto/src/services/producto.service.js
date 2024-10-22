@@ -6,7 +6,7 @@ const BigDecimal = require('cassandra-driver').types.BigDecimal;
 class ProductoService {
   async crearProducto({ imagen, nombre, fabricante, marca, precio_actual, codigo_bodega, capacidad_bodega_cubica, codigo_cuarto_frio, capacidad_cuarto_frio, temperatura_cuarto_frio }) {
     const productoId = uuidv4();
-    const historico_precios = [new Tuple(new BigDecimal(precio_actual), new Date())];
+    const historico_precios = [new Tuple(new BigDecimal(parseFloat(precio_actual), 2), new Date())];
     const decimalPrecio = new BigDecimal((precio_actual * 100), 2);
     const decimalCapacidadBodega = new BigDecimal((capacidad_bodega_cubica * 100), 2);
     const decimalCapacidadCuartoFrio = capacidad_cuarto_frio ? new BigDecimal((capacidad_cuarto_frio * 100), 2) : null;
@@ -15,7 +15,7 @@ class ProductoService {
       `INSERT INTO productos (codigo, imagen, nombre, fabricante, marca, precio_actual, historico_precios, codigo_bodega, capacidad_bodega_cubica, codigo_cuarto_frio, capacidad_cuarto_frio, temperatura_cuarto_frio, disponible) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);`,
       [productoId, imagen, nombre, fabricante, marca, decimalPrecio, historico_precios, codigo_bodega, decimalCapacidadBodega, codigo_cuarto_frio, decimalCapacidadCuartoFrio, decimalTemperaturaCuartoFrio, true],
       { prepare: true }
-    );
+    )
 
     return productoId;
   }

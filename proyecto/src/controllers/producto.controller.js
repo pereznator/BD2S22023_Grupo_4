@@ -24,7 +24,6 @@ const crearProductoController = async(req, res) => {
     }
 
     const bodega = await bodegaService.obtenerBodegaPorCodigo(codigo_bodega);
-    console.log(bodega);
     if (!bodega) {
       throw new Error('La bodega no existe.');
     }
@@ -44,7 +43,6 @@ const crearProductoController = async(req, res) => {
         temperatura_cuarto_frio: cuartoFrio.temperatura
       };
     }
-
     const productoId = await productoService.crearProducto({ imagen, nombre, fabricante, marca, precio_actual, codigo_bodega, capacidad_bodega_cubica: bodega.capacidad, ...cuartoFrioBody });
     const producto = await productoService.obtenerProductoPorId(productoId);
     return res.status(201).json(producto);
