@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  app:
+    container_name: api_bases2
+    build:
+      context: ..
+      dockerfile: ./Dockerfile  # El Dockerfile está en la raíz del proyecto
+    image: img_api_bases2
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - MONGO_URI=mongodb://mongo:27017/bases2
+    depends_on:
+      - mongo
+    volumes:
+      - ../:/app               # Mapea la raíz del proyecto al contenedor
+    command: npm run start
+  mongo:
+    image: mongo:6.0
+    container_name: mongodb_bases2
+    ports:
+      - '27017:27017'
+    volumes:
+      # Mapea el volumen de MongoDB a la carpeta 'mongodb-data' dentro del proyecto
+      - ./mongodb_data:/data/db
