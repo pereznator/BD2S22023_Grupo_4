@@ -14,6 +14,7 @@ function Aplicacion() {
       <Route path="/usuario/creacion" element={<CrearUsuario/>} />
       <Route path="/autor/creacion" element={<CrearAutor/>} />
       <Route path="/libro/creacion" element={<CrearLibro/>} />
+      <Route path="/panel" element={<ViewData/>} />
     </Routes>
   );
 }

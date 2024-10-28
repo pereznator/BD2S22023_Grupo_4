@@ -12,6 +12,7 @@ function Dash({ children }) {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
+                <Nav.Link href="/panel">Panel de Consulta</Nav.Link>
                   <Nav.Link href="/actualizar">Actualización</Nav.Link>
                   <NavDropdown title="Creación" id="basic-nav-dropdown">
                     <NavDropdown.Item href="/usuario/creacion">Usuario</NavDropdown.Item>
