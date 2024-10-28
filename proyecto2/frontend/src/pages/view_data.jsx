@@ -93,69 +93,88 @@ export default function ViewData() {
 
     return (
         <Dash>
-            <Form>
-                <FormGroup>
-                    <FloatingLabel
-                        controlId="floatingInput"
-                        label="Tipo de Consulta"
-                        className="mb-3"
-                    >
-                        <FormSelect onChange={handleConsulta}>
-                        {consultas.map((consulta, index) => (
-                            <option key={index} value={index}>{consulta.nombre}</option>
-                        ))}
-                    </FormSelect>
-                    </FloatingLabel>
+            <div className="container mt-4">
+                <h2 className="text-center mb-4">Consulta de Datos</h2>
+                <Form className="p-4 border rounded shadow-sm bg-light">
+                    <FormGroup>
+                        <FloatingLabel
+                            controlId="floatingInputConsulta"
+                            label="Tipo de Consulta"
+                            className="mb-3"
+                        >
+                            <FormSelect onChange={handleConsulta}>
+                                {consultas.map((consulta, index) => (
+                                    <option key={index} value={index}>
+                                        {consulta.nombre}
+                                    </option>
+                                ))}
+                            </FormSelect>
+                        </FloatingLabel>
 
-                    <FloatingLabel
-                        controlId="floatingInput"
-                        label="Input Texto Para Consulta"
-                        className="mb-3"
-                    >
-                        <FormControl type="text" placeholder="Input Texto Para Consulta" onChange={handleInput} />
-                    </FloatingLabel>
+                        <FloatingLabel
+                            controlId="floatingInputTexto"
+                            label="Input Texto Para Consulta"
+                            className="mb-3"
+                        >
+                            <FormControl
+                                type="text"
+                                placeholder="Input Texto Para Consulta"
+                                onChange={handleInput}
+                            />
+                        </FloatingLabel>
 
-                    <FloatingLabel
-                        controlId="floatingInput"
-                        label="Fecha y Hora Inicial"
-                        className="mb-3"
-                    >
-                        <FormControl type="datetime-local" placeholder="Fecha Inicial" onChange={handleFechaInicial} ></FormControl>
-                    </FloatingLabel>
+                        <FloatingLabel
+                            controlId="floatingInputFechaInicial"
+                            label="Fecha y Hora Inicial"
+                            className="mb-3"
+                        >
+                            <FormControl
+                                type="datetime-local"
+                                placeholder="Fecha Inicial"
+                                onChange={handleFechaInicial}
+                            />
+                        </FloatingLabel>
 
-                    <FloatingLabel
-                        controlId="floatingInput"
-                        label="Fecha y Hora Final"
-                        className="mb-3"
-                    >
-                        <FormControl type="datetime-local" placeholder="Fecha Final" onChange={handleFechaFinal} ></FormControl>
-                    </FloatingLabel>
-                    
-                    <Button variant="primary" type="button" onClick={handleConsultar}>Consultar</Button>
+                        <FloatingLabel
+                            controlId="floatingInputFechaFinal"
+                            label="Fecha y Hora Final"
+                            className="mb-3"
+                        >
+                            <FormControl
+                                type="datetime-local"
+                                placeholder="Fecha Final"
+                                onChange={handleFechaFinal}
+                            />
+                        </FloatingLabel>
 
-                </FormGroup>
-            </Form>
+                        <Button variant="primary" type="button" onClick={handleConsultar} className="w-100 mt-3">
+                            Consultar
+                        </Button>
+                    </FormGroup>
+                </Form>
 
-            <FormLabel>Resultado de la Consulta</FormLabel>
- 
-            <Table striped bordered hover>
-                <thead>
-                    <tr>
-                        {dataTable[0]?.map((header, index) => (
-                            <th key={index}>{header}</th>
-                        ))}
-                    </tr>
-                </thead>
-                <tbody>
-                        {dataTable[1]?.map((data, index) => (
-                            <tr key={index}>
-                                {data?.map((d, index) => (
-                                    <td key={index}>{d}</td>
+                <div className="mt-5">
+                    <FormLabel className="fs-5">Resultado de la Consulta</FormLabel>
+                    <Table striped bordered hover responsive="md" className="mt-3">
+                        <thead className="table-primary">
+                            <tr>
+                                {dataTable[0]?.map((header, index) => (
+                                    <th key={index}>{header}</th>
                                 ))}
                             </tr>
-                        ))}
-                </tbody>
-            </Table>
+                        </thead>
+                        <tbody>
+                            {dataTable[1]?.map((data, index) => (
+                                <tr key={index}>
+                                    {data?.map((d, index) => (
+                                        <td key={index}>{d}</td>
+                                    ))}
+                                </tr>
+                            ))}
+                        </tbody>
+                    </Table>
+                </div>
+            </div>
         </Dash>
     );
 }
