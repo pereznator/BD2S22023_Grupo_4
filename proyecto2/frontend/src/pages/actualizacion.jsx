@@ -6,6 +6,9 @@ import Col from 'react-bootstrap/Col';
 import ActualizarLibro from '../components/actualizarLibro'
 import ActualizarAutor from '../components/actualizarAutor'
 import ActualizarUsuario from "../components/actualizarUsuario"
+import EliminarLibros from "../components/eliminarLibro"
+import EliminarAutor from "../components/eliminarAutor"
+import ElminarUsuaro from "../components/eliminarUsuario"
 
 export default function Home() {
  
@@ -15,6 +18,9 @@ export default function Home() {
         <ActualizarLibro/>
         <ActualizarAutor/>
         <ActualizarUsuario/>
+        <EliminarLibros/>
+        <EliminarAutor/>
+        <ElminarUsuaro/>
       </Container>
     </DashboardLayout>
   );

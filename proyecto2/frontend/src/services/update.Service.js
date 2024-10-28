@@ -36,6 +36,24 @@ export class UpdateApi {
     });
   }
 
+  eliminarLibro(id) {
+    return fetch(`${this.API_URL}/libros/${id}`, {
+      method: "DELETE"
+    });
+  }
+
+  eliminarAutor(id) {
+    return fetch(`${this.API_URL}/autores/${id}`, {
+      method: "DELETE"
+    });
+  }
+
+  eliminarUsuario(id) {
+    return fetch(`${this.API_URL}/usuarios/${id}`, {
+      method: "DELETE"
+    });
+  }
+
   getLibros() {
     return fetch(`${this.API_URL}/libros`, { method: "GET" });
   }
