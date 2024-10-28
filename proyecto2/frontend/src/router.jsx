@@ -5,7 +5,7 @@ import ViewData from "./pages/view_data";
 function Aplicacion() {
   return (
     <Routes>
-      <Route path="/" element={<ViewData></ViewData>} />
+      <Route path="/panel" element={<ViewData/>} />
     </Routes>
   );
 }

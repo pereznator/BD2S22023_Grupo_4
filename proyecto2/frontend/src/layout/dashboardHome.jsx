@@ -12,6 +12,7 @@ function Dash({ children }) {
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
                 <Nav.Link href="/">Actualizacion</Nav.Link>
+                <Nav.Link href="/panel">Panel de Consulta</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
             </Container>
