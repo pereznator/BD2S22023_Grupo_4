@@ -30,9 +30,9 @@ export default function Home() {
       setLibros(librosResponse)
     })
   }, [])
-  return (<>
+  return (<div className="m-2">
     <Row>
-      <h2>Actualizar la disponibilidad de un libro</h2>
+      <h4>Actualizar la disponibilidad de un libro</h4>
     </Row>
     <Row>
       <Col>
@@ -53,5 +53,5 @@ export default function Home() {
         />
       </Col>
     </Row>
-  </>);
+  </div>);
 }

@@ -42,8 +42,9 @@ function TextControlsExample() {
 
 	return (
 		<DashboardLayout>
-			<Container>
-				<Form>
+			<Container className='mt-4'>
+				<h2 className="text-center mb-4">Crear usuario</h2>
+				<Form className="p-4 border rounded shadow-sm bg-light">
 					<Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
 						<Form.Label>Nombre</Form.Label>
 						<Form.Control value={nombre} type="text" onChange={(event) => setNombre(event.target.value)}/>
@@ -56,7 +57,7 @@ function TextControlsExample() {
 						<Form.Label>Dirección de correo eléctronico</Form.Label>
 						<Form.Control value={email} type="email" placeholder="name@example.com" onChange={(event) => setEmail(event.target.value)} />
 					</Form.Group>
-					<Button variant="primary" onClick={onClickCrear}>Crear</Button>
+					<Button variant="primary" onClick={onClickCrear} className="w-100 mt-3">Crear</Button>
 				</Form>
 			</Container>
 		</DashboardLayout>

@@ -13,7 +13,7 @@ function Dash({ children }) {
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
                 <Nav.Link href="/panel">Panel de Consulta</Nav.Link>
-                  <Nav.Link href="/actualizar">Actualización</Nav.Link>
+                  <Nav.Link href="/operaciones">Operaciones</Nav.Link>
                   <NavDropdown title="Creación" id="basic-nav-dropdown">
                     <NavDropdown.Item href="/usuario/creacion">Usuario</NavDropdown.Item>
                     <NavDropdown.Item href="/autor/creacion">Autor</NavDropdown.Item>

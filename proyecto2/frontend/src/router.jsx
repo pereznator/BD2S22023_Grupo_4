@@ -10,7 +10,7 @@ function Aplicacion() {
   return (
     <Routes>
       <Route path="/" element={<ViewData></ViewData>} />
-      <Route path="/actualizar" element={<Actualizacion/>} />
+      <Route path="/operaciones" element={<Actualizacion/>} />
       <Route path="/usuario/creacion" element={<CrearUsuario/>} />
       <Route path="/autor/creacion" element={<CrearAutor/>} />
       <Route path="/libro/creacion" element={<CrearLibro/>} />

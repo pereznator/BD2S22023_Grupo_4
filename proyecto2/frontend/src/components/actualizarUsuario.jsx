@@ -41,9 +41,9 @@ export default function Home() {
     })
   }
 
-  return (<>
+  return (<div className="m-2">
     <Row>
-      <h2>Cambiar dirección de correo eléctronico de un Usuario</h2>
+      <h4>Cambiar dirección de correo eléctronico de un Usuario</h4>
     </Row>
     <Row>
       <Col>
@@ -62,5 +62,5 @@ export default function Home() {
 					<Button variant="primary" onClick={onClickActualizar}>Actualizar</Button>
       </Col>
     </Row>
-  </>);
+  </div>);
 }

@@ -37,7 +37,7 @@ export default function Home() {
 
   return (<>
     <Row>
-      <h2>Eliminar autor</h2>
+      <h4>Eliminar autor</h4>
     </Row>
     <Row>
       <Col>

@@ -9,7 +9,7 @@ import { UpdateApiService } from "../services/update.Service";
 export default function Home() {
   const [currentAutor, setCurrentAutor] = useState("")
   const [autores, setAutores] = useState([])
-	const [nacionalidad, setNacionalidad] = useState("")
+  const [nacionalidad, setNacionalidad] = useState("")
 
   const onChangeCurrentAutor = (event) => {
     setCurrentAutor(event.target.value)
@@ -30,39 +30,41 @@ export default function Home() {
       nacionalidad: nacionalidad.split(",")
     }).then(() => {
       swal({
-				title: "Autor actualizado",
-				icon: "success",
-				button: "Cerrar",
-			});
+        title: "Autor actualizado",
+        icon: "success",
+        button: "Cerrar",
+      });
     }).catch(() => {
       swal({
-				title: "Error en el servicio",
-				icon: "error",
-				button: "Cerrar",
-			});
+        title: "Error en el servicio",
+        icon: "error",
+        button: "Cerrar",
+      });
     })
   }
 
-  return (<>
+  return (<div className="m-2">
     <Row>
-      <h2>Modificar la nacionalidad de un autor</h2>
+      <h4>Modificar la nacionalidad de un autor</h4>
     </Row>
     <Row>
       <Col>
-        <Form.Select value={currentAutor} onChange={onChangeCurrentAutor}>
-          <option value="">Selecciona el autor</option>
-          {
-            autores.map((autor, index) => <option value={autor._id} key={index}>{`${autor.nombre} ${autor.apellido}`}</option>)
-          }
-        </Form.Select>
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-						<Form.Label>Nacionalidad</Form.Label>
-						<Form.Control value={nacionalidad} type="text" placeholder="ej. guatemalteco, mexicano, etc" onChange={(event) => setNacionalidad(event.target.value)} />
-					</Form.Group>
+        <Form>
+          <Form.Select value={currentAutor} onChange={onChangeCurrentAutor}>
+            <option value="">Selecciona el autor</option>
+            {
+              autores.map((autor, index) => <option value={autor._id} key={index}>{`${autor.nombre} ${autor.apellido}`}</option>)
+            }
+          </Form.Select>
+          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Label>Nacionalidad</Form.Label>
+            <Form.Control value={nacionalidad} type="text" placeholder="ej. guatemalteco, mexicano, etc" onChange={(event) => setNacionalidad(event.target.value)} />
+          </Form.Group>
+        </Form>
       </Col>
       <Col>
-					<Button variant="primary" onClick={onClickActualizar}>Actualizar</Button>
+        <Button variant="primary" onClick={onClickActualizar}>Actualizar</Button>
       </Col>
     </Row>
-  </>);
+  </div>);
 }

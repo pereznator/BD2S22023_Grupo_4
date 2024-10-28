@@ -37,7 +37,7 @@ export default function Home() {
 
   return (<>
     <Row>
-      <h2>Eliminar usuario</h2>
+      <h4>Eliminar usuario</h4>
     </Row>
     <Row>
       <Col>

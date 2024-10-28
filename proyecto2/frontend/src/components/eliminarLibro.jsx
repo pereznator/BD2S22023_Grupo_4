@@ -37,7 +37,7 @@ export default function Home() {
 
   return (<>
     <Row>
-      <h2>Eliminar libros</h2>
+      <h4>Eliminar libros</h4>
     </Row>
     <Row>
       <Col>

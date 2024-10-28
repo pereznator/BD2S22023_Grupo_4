@@ -14,13 +14,19 @@ export default function Home() {
  
   return (
     <DashboardLayout>
-      <Container>
-        <ActualizarLibro/>
-        <ActualizarAutor/>
-        <ActualizarUsuario/>
-        <EliminarLibros/>
-        <EliminarAutor/>
-        <ElminarUsuaro/>
+      <Container className="mt-4">
+        <div className="p-4 border rounded shadow-sm bg-light mb-4">
+          <h2 className="text-center mb-4">Actualizaciones</h2>
+          <ActualizarLibro/>
+          <ActualizarAutor/>
+          <ActualizarUsuario/>
+        </div>
+        <div className="p-4 border rounded shadow-sm bg-light mb-4">
+          <h2 className="text-center mb-4">Eliminación</h2>
+          <EliminarLibros/>
+          <EliminarAutor/>
+          <ElminarUsuaro/>
+        </div>
       </Container>
     </DashboardLayout>
   );
