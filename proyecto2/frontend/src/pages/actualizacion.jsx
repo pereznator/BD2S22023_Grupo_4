@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ActualizarLibro from '../components/actualizarLibro'
 import ActualizarAutor from '../components/actualizarAutor'
+import ActualizarUsuario from "../components/actualizarUsuario"
 
 export default function Home() {
  
@@ -13,6 +14,7 @@ export default function Home() {
       <Container>
         <ActualizarLibro/>
         <ActualizarAutor/>
+        <ActualizarUsuario/>
       </Container>
     </DashboardLayout>
   );
